@@ -1,4 +1,4 @@
-fetch("data/photographers.json")
+fetch("./data/photographers.json")
 	.then((res) => res.json()) // récupère et affiche le Json
 	.then(function (data) {
 		// seconde then qui à pour but de manipuler les données JSON
