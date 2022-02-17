@@ -23,7 +23,6 @@ function photographerFactory(data) {
 
 		//const ville = document.createElement("ville");
 		const ville = document.createElement("p");
-		ville.className = "ville"; // ajoute une class
 		ville.textContent = city + ", " + country;
 		article.appendChild(ville);
 		console.log(ville);
