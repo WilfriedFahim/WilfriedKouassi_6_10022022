@@ -40,6 +40,14 @@ h1 {
 	flex-direction: column;
 }
 
+.photographer_section article a {
+	text-decoration: none;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+
 .photographer_section article img {
 	object-fit: cover;
 	height: 200px;
