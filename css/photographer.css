@@ -1,3 +1,9 @@
+body,
+* {
+	font-family: "DM Sans", sans-serif;
+	margin: 0;
+}
+
 #contact_modal {
 	display: none;
 }
@@ -19,6 +25,7 @@
 	background-color: #901c1c;
 	border-radius: 5px;
 	cursor: pointer;
+	margin-left: 150px;
 }
 
 .modal {
@@ -73,4 +80,86 @@ form input {
 	height: 68px;
 	border: none;
 	border-radius: 5px;
+}
+
+.photograph-header {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding: 0 40px;
+}
+
+.photograph-header__infos {
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
+}
+
+.photograph-header__infos-left {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-around;
+}
+
+.photograph-header img {
+	object-fit: cover;
+	height: 150px;
+	width: 150px;
+	border-radius: 50%;
+}
+
+.photograph-header h2 {
+	color: #d3573c;
+	font-size: 2.5em;
+	font-weight: 500;
+}
+
+.photograph-header .ville {
+	color: #901c1c;
+	font-weight: normal;
+	font-style: normal;
+	font-size: 1.5em;
+	line-height: 13px;
+	padding-top: 10px;
+}
+
+.photograph-header .tag {
+	color: #525252;
+	font-weight: normal;
+	font-style: normal;
+	font-size: 1em;
+	line-height: 13px;
+	padding-top: 25px;
+}
+
+/* LE BOUTON " TRIER PAR " */
+
+.filter {
+	display: flex;
+	margin: 25px 100px;
+}
+
+.filter p {
+	margin-right: 25px;
+	padding-top: 5px;
+	font-weight: bold;
+}
+
+.underlign {
+	border-top: 1px solid white;
+	width: 15px;
+}
+
+.custom-select select {
+	width: 160px;
+	background-color: #901c1c;
+	color: white;
+	font-weight: bold;
+	padding: 16px 10px;
+	font-size: 16px;
+	border-radius: 5px;
+}
+
+.custom-select select .test {
+	padding: 16px 10px;
 }

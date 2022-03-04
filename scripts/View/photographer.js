@@ -6,10 +6,12 @@ function photographerFactory(data) {
 	function getUserCardDOM() {
 		const article = document.createElement("article");
 		const link = document.createElement("a"); // creer le lien <a>
+		const ID = document.createElement("id");
 
 		link.href = "photographer.html"; // ajoute le chemin a la const qui contient le lien
 		article.appendChild(link); // ajoute la const a l'article
-
+		link.setAttribute("class", "card__for-link"); // ajoute l'id à chaque card
+		link.setAttribute("id", id);
 		const img = document.createElement("img");
 		img.setAttribute("src", picture);
 
@@ -37,5 +39,14 @@ function photographerFactory(data) {
 		return article;
 	}
 
-	return { name, id, city, tagline, price, portrait, getUserCardDOM };
+	return {
+		name,
+		id,
+		city,
+		country,
+		tagline,
+		price,
+		portrait,
+		getUserCardDOM,
+	};
 }
