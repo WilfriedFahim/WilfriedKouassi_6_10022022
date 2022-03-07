@@ -28,8 +28,50 @@ function getIdLink(photographers) {
 			console.log(photographerID);
 
 			displayPhotographersData(photographers, photographerID); //init la fonction avec les deux argumentents qui sont le tableau et l'iD récuperer
+			displayMedia(photographerID, photographers); // récupère les media du photographes et les affichents
 		});
 	}
+}
+
+// ---------------------------------------------
+// PERMET DE RECUPERER LES DATA JSON MEDIA
+
+async function displayMedia(photographerID, photographers) {
+	const medias = await fetch(URL_Json)
+		.then((response) => response.json())
+		.then((response) => response.media)
+		.catch((error) => console.log("La base de donnée n'existe pas", error));
+
+	const mediaInfos = medias.filter(
+		(element) => element.photographerId == photographerID
+	);
+
+	const getPhotographerName = photographers.find(
+		(element) => element.id == photographerID
+	);
+
+	console.log(getPhotographerName.name);
+
+	mediaInfos.forEach((mediaInfo) => {
+		const pageMedia = ` 
+				<div class="blocHaut-img">
+					<img src="assets/SamplePhotos/${getPhotographerName.name}/${mediaInfo.image}">
+				</div>
+				<div class="blocBas-infos">
+					<div class="blocBas-infos__titre">
+						<p class="title">${mediaInfo.title}</p>
+					</div>
+					<div class="blocBas-infos__data">
+						<p class="like">${mediaInfo.likes}</p>
+						<p class="like">OuO</p>
+					</div>
+				</div>
+		`;
+		const article = document.createElement("article");
+		article.setAttribute("class", "container");
+		article.innerHTML = pageMedia;
+		document.querySelector(".photographer_section1").appendChild(article);
+	});
 }
 
 // ---------------------------------------------
@@ -61,16 +103,14 @@ function displayPhotographersData(photographers, photographerID) {
 				<p>Trier par</p>
 				<div class="custom-select">
   					<select>
-    					<option value="0">Popularité</option>
+    					<option class="test" value="0">Popularité</option>
     					<option value="1">Date</option>
     					<option value="2">Titre</option>
   					</select>
 				</div>
-			</section>
-			`;
+			</section>`;
 
-	const pagePhotographerSection = document.querySelector("#main");
-	pagePhotographerSection.innerHTML = pagePhotographer;
+	document.querySelector(".photographer_section").innerHTML = pagePhotographer;
 }
 
 // ---------------------------------------------
