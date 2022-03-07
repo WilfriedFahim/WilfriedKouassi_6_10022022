@@ -87,6 +87,7 @@ form input {
 .photographer_section {
 	display: flex;
 	flex-direction: column;
+	justify-content: space-around;
 }
 
 .photograph-header {
@@ -143,7 +144,7 @@ form input {
 
 .filter {
 	display: flex;
-	margin: 0px 100px;
+	margin: -50px 100px 0 100px;
 }
 
 .filter p {
@@ -182,7 +183,7 @@ form input {
 	grid-template-rows: auto;
 	column-gap: 90px;
 	row-gap: 30px;
-	margin: 0 100px;
+	margin: 50px 100px 0 100px;
 }
 
 .container {
@@ -196,6 +197,13 @@ form input {
 }
 
 .blocHaut-img img {
+	width: 100%;
+	height: 100%;
+	border-radius: 5px;
+	object-fit: cover;
+}
+
+.blocHaut-img video {
 	width: 100%;
 	height: 100%;
 	border-radius: 5px;

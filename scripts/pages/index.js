@@ -8,7 +8,7 @@ async function getPhotographers() {
 	const photographers = await new PhotographerData(
 		URL_Json
 	).getPhotographersData();
-	console.table(photographers);
+	console.table(photographers); // A SUPP
 	return {
 		photographers: [...photographers],
 	};

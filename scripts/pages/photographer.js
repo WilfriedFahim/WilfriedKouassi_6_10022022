@@ -25,7 +25,7 @@ function getIdLink(photographers) {
 		generalLink[i].addEventListener("click", function (event) {
 			event.preventDefault();
 			const photographerID = generalLink[i].id; // récupère l'id rattaché à l'attribut selectionné
-			console.log(photographerID);
+			console.log(photographerID); // A SUPP
 
 			displayPhotographersData(photographers, photographerID); //init la fonction avec les deux argumentents qui sont le tableau et l'iD récuperer
 			displayMedia(photographerID, photographers); // récupère les media du photographes et les affichents
@@ -43,17 +43,19 @@ async function displayMedia(photographerID, photographers) {
 		.catch((error) => console.log("La base de donnée n'existe pas", error));
 
 	const mediaInfos = medias.filter(
-		(element) => element.photographerId == photographerID
-	);
+		(element) => element.photographerId == photographerID // Me permet de recup l'objet du photographe
+	); // rattacher à l'ID comparé
 
 	const getPhotographerName = photographers.find(
-		(element) => element.id == photographerID
-	);
+		(element) => element.id == photographerID // Ceci me permet de récuperer le nom du photographe
+	); // pour ensuite m'en servir pour trouver le dossier de média associé
 
-	console.log(getPhotographerName.name);
+	console.log(getPhotographerName.name); // A SUPP
 
 	mediaInfos.forEach((mediaInfo) => {
-		const pageMedia = ` 
+		if (mediaInfo.image) {
+			// Si mediaInfo.image is true, si sa existe
+			const pageMedia = ` 
 				<div class="blocHaut-img">
 					<img src="assets/SamplePhotos/${getPhotographerName.name}/${mediaInfo.image}">
 				</div>
@@ -67,10 +69,35 @@ async function displayMedia(photographerID, photographers) {
 					</div>
 				</div>
 		`;
-		const article = document.createElement("article");
-		article.setAttribute("class", "container");
-		article.innerHTML = pageMedia;
-		document.querySelector(".photographer_section1").appendChild(article);
+
+			const article = document.createElement("article");
+			article.setAttribute("class", "container");
+			article.innerHTML = pageMedia;
+			document.querySelector(".photographer_section1").appendChild(article);
+		} else if (mediaInfo.video) {
+			// Si mediaInfo.image is true, si sa existe
+			const pageMedia = ` 
+				<div class="blocHaut-img">
+					<video poster="" controls>
+      					<source src="assets/SamplePhotos/${getPhotographerName.name}/${mediaInfo.video}" type=video/mp4>
+    				</video>
+				</div>
+				<div class="blocBas-infos">
+					<div class="blocBas-infos__titre">
+						<p class="title">${mediaInfo.title}</p>
+					</div>
+					<div class="blocBas-infos__data">
+						<p class="like">${mediaInfo.likes}</p>
+						<p class="like">OuO</p>
+					</div>
+				</div>
+		`;
+
+			const article = document.createElement("article");
+			article.setAttribute("class", "container");
+			article.innerHTML = pageMedia;
+			document.querySelector(".photographer_section1").appendChild(article);
+		}
 	});
 }
 
@@ -82,7 +109,7 @@ function displayPhotographersData(photographers, photographerID) {
 	const photograperInfo = photographers.find(
 		(element) => element.id == photographerID
 	);
-	console.table(photograperInfo);
+	console.table(photograperInfo); // A SUPP
 
 	const pagePhotographer = ` 
 			<div class="photograph-header">
