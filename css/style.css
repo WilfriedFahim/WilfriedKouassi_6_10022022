@@ -6,6 +6,8 @@ body,
 	margin: 0;
 }
 
+/* SECTION HEADER */
+
 header {
 	display: flex;
 	flex-direction: row;
@@ -20,10 +22,14 @@ h1 {
 	margin-right: 100px;
 }
 
+/* SECTION HEADER | img */
+
 .logo {
 	height: 50px;
 	margin-left: 100px;
 }
+
+/* SECTION MAIN | div photographer_section */
 
 .photographer_section {
 	display: grid;
@@ -90,6 +96,8 @@ h1 {
 	text-align: center;
 	margin-top: 2px;
 }
+
+/* MEDIA QUERIES - RESPONSIVE  */
 
 @media screen and (min-width: 860px) and (max-width: 1045px) {
 	.photographer_section {
@@ -163,4 +171,11 @@ h1 {
 		line-height: normal;
 		margin-top: 3px;
 	}
+}
+
+/*******************************************************/
+/** __ Box TOTAL Like | PAGE PHOTOGRAPHERS (media.js) */
+
+.boxTotalLikes {
+	position: absolute;
 }

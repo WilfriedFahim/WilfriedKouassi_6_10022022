@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<link href="css/style.css" rel="stylesheet" type="text/css" />
 		<link href="css/photographer.css" rel="stylesheet" type="text/css" />
 		<meta charset="utf-8" />
 		<link rel="icon" type="image/png" href="assets/favicon.png" />
@@ -20,8 +19,8 @@
 			<img src="assets/images/logo.png" class="logo" />
 		</header>
 		<main id="main">
-			<div class="section-header"></div>
-			<div class="photographer-section"></div>
+			<div class="section_header"></div>
+			<div class="photographer_media"></div>
 		</main>
 		<div id="contact_modal">
 			<div class="modal">
@@ -38,7 +37,11 @@
 				</form>
 			</div>
 		</div>
-		<script src="scripts/utils/FetchData.js" type="module"></script>
-		<script src="scripts/pages/photographer.js" type="module"></script>
+		<script src="scripts/controller/photographerController.js" type="module"></script>
+		<script src="scripts/pages/photographerMediaCardDom.js"></script>
+		<script src="scripts/pages/bannerPhotographerCard.js"></script>
+		<script src="scripts/pages/FetchData.js" type="module"></script>
+		<script src="scripts/pages/FetchMedia.js" type="module"></script>
+	</body>
 	</body>
 </html>

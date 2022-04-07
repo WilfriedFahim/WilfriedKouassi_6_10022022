@@ -1,13 +1,12 @@
 function photographerFactory(data) {
 	const { name, id, city, country, tagline, price, portrait } = data;
-
 	const picture = `assets/SamplePhotos/Photographers_ID_Photos/${portrait}`;
 
 	function getUserCardDOM() {
 		const article = document.createElement("article");
 		const a = document.createElement("a"); // creer le lien <a>
 
-		a.href = `./photographer.html`; // ajoute le chemin a la const qui contient le lien
+		a.href = `./photographer.html?id=` + id; // ajoute le chemin a la const qui contient le lien
 		article.appendChild(a); // ajoute la const a l'article
 		a.setAttribute("class", "card__for-link"); // ajoute l'id à chaque card
 		a.setAttribute("id", id);
