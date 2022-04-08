@@ -42,7 +42,7 @@ function iFiltMedia(media, photographers) {
 	); // rattacher à l'ID comparé
 
 	const photographer = photographers.filter(
-		(element) => element.id == ids // Me permet de recup l'objet du photographe
+		(element) => element.id == ids // Me permet de recup  l'objet du photographe
 	); // rattacher à l'ID comparé
 
 	displayMedia(mediaInfos);

@@ -3,10 +3,6 @@ function bannerPhotographerFactory(data) {
 	const picture = `assets/SamplePhotos/Photographers_ID_Photos/${portrait}`;
 
 	function getBannerPhotographer() {
-		const section = document.createElement("section");
-
-		//* ------------------------------------------------------
-
 		//* <div class="photograph-header">
 		const photographerHeader = document.createElement("div");
 		photographerHeader.setAttribute("class", "photograph-header");
@@ -89,8 +85,9 @@ function bannerPhotographerFactory(data) {
 		value2.textContent = "Popularité";
 		select.appendChild(value2);
 
-		section.appendChild(photographerHeader);
-		section.appendChild(filter);
+		const headerSection = document.querySelector(".section_header");
+		headerSection.appendChild(photographerHeader);
+		headerSection.appendChild(filter);
 
 		return section;
 	}

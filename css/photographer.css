@@ -4,7 +4,7 @@ body,
 	margin: 0;
 }
 
-/* SECTION HEADER */
+/** <header> */
 
 header {
 	display: flex;
@@ -15,14 +15,16 @@ header {
 	padding-top: 20px;
 }
 
-/* SECTION HEADER | img */
+/** ___<img> */
 
 .logo {
 	height: 50px;
-	margin-left: 100px;
+	margin-left: 140px;
 }
 
-/* SECTION MAIN | div section_header */
+/** <main id="main"> */
+
+/** ___<div class="section_header"> */
 
 .photograph-header {
 	display: flex;
@@ -30,6 +32,8 @@ header {
 	align-items: center;
 	max-width: 1200px;
 	margin: 0 20px;
+	margin-left: auto;
+	margin-right: auto;
 }
 
 .photograph-header__infos {
@@ -75,7 +79,42 @@ header {
 	padding-top: 25px;
 }
 
-/* SECTION MAIN | div photographer_media */
+/** ______<div class="filter"> */
+
+.filter {
+	display: flex;
+	margin: 15px 100px 0 140px;
+}
+
+.filter p {
+	margin-right: 25px;
+	padding-top: 5px;
+	font-weight: bold;
+}
+
+.underlign {
+	border-top: 1px solid white;
+	width: 15px;
+}
+
+.custom-select select {
+	width: 160px;
+	background-color: #901c1c;
+	color: white;
+	font-weight: bold;
+	padding: 16px 10px;
+	font-size: 16px;
+	border-radius: 5px;
+}
+.test {
+	width: 500px;
+}
+
+.custom-select select .test {
+	padding: 16px 10px;
+}
+
+/** ___<div class="photographer_media"> */
 
 .photographer_media {
 	display: grid;
@@ -89,7 +128,7 @@ header {
 }
 
 article {
-	width: 350px;
+	width: 380px;
 	height: 333.5px;
 	margin: 0 0 20px 0;
 }
@@ -155,41 +194,6 @@ article {
 
 .blocBas-infos__data .getLike {
 	fill: #901c1c;
-}
-
-/* LE BOUTON " TRIER PAR " */
-
-.filter {
-	display: flex;
-	margin: -50px 100px 0 20px;
-}
-
-.filter p {
-	margin-right: 25px;
-	padding-top: 5px;
-	font-weight: bold;
-}
-
-.underlign {
-	border-top: 1px solid white;
-	width: 15px;
-}
-
-.custom-select select {
-	width: 160px;
-	background-color: #901c1c;
-	color: white;
-	font-weight: bold;
-	padding: 16px 10px;
-	font-size: 16px;
-	border-radius: 5px;
-}
-.test {
-	width: 500px;
-}
-
-.custom-select select .test {
-	padding: 16px 10px;
 }
 
 /* DIV MODAL | XXXX */
