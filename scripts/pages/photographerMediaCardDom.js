@@ -14,6 +14,7 @@ function mediaFactory(dataA) {
 
 	const picture = `assets/SamplePhotos/${photographerId}/${image}`;
 	const videoMedia = `assets/SamplePhotos/${photographerId}/${video}`;
+	const svgCoeur = `assets/icons/heart-solid.svg`;
 	// J'utilise l'id pour trouver le chemin car j'ai nommé chaque dossier
 	// photographe par son id et pas par son nom
 
@@ -48,14 +49,30 @@ function mediaFactory(dataA) {
 			blocBasInfos_data.setAttribute("class", "blocBas-infos__data");
 			blocBasInfos_data.setAttribute("id", id);
 			blocBasInfos.appendChild(blocBasInfos_data);
+
+			//__-__nbr de like
 			let dataImg_p = document.createElement("p");
 			dataImg_p.setAttribute("class", "nbrLikes");
 			dataImg_p.textContent = likes;
 			blocBasInfos_data.appendChild(dataImg_p);
-			//! NE PAS OUBLIER LE SVG COEUR
 
-			//* __Fonction qui incrémente les likes
-			dataImg_p.addEventListener("click", () => {
+			//__-__coeur svg
+			const svg = document.createElementNS("http://www.w3.org/2000/svg", "svg");
+			const path1 = document.createElementNS(
+				"http://www.w3.org/2000/svg",
+				"path"
+			);
+			svg.setAttribute("viewBox", "0 0 512 512");
+			svg.setAttribute("class", "like");
+			path1.setAttribute(
+				"d",
+				"M0 190.9V185.1C0 115.2 50.52 55.58 119.4 44.1C164.1 36.51 211.4 51.37 244 84.02L256 96L267.1 84.02C300.6 51.37 347 36.51 392.6 44.1C461.5 55.58 512 115.2 512 185.1V190.9C512 232.4 494.8 272.1 464.4 300.4L283.7 469.1C276.2 476.1 266.3 480 256 480C245.7 480 235.8 476.1 228.3 469.1L47.59 300.4C17.23 272.1 .0003 232.4 .0003 190.9L0 190.9z"
+			);
+			svg.appendChild(path1);
+			blocBasInfos_data.appendChild(svg);
+
+			//* __Fonction anonyme qui incrémente les likes
+			svg.addEventListener("click", () => {
 				if (dataImg_p.textContent == likes) {
 					dataImg_p.textContent++;
 				} else {
@@ -99,10 +116,24 @@ function mediaFactory(dataA) {
 			dataVid_p.setAttribute("class", "nbrLikes");
 			dataVid_p.textContent = likes;
 			blocBasInfos_data.appendChild(dataVid_p);
-			//! NE PAS OUBLIER LE SVG COEUR
 
-			//* __FONCTION QUI INCREMENTE LES LIKES
-			dataVid_p.addEventListener("click", () => {
+			//__-__coeur svg
+			const svg = document.createElementNS("http://www.w3.org/2000/svg", "svg");
+			const path1 = document.createElementNS(
+				"http://www.w3.org/2000/svg",
+				"path"
+			);
+			svg.setAttribute("viewBox", "0 0 512 512");
+			svg.setAttribute("class", "like");
+			path1.setAttribute(
+				"d",
+				"M0 190.9V185.1C0 115.2 50.52 55.58 119.4 44.1C164.1 36.51 211.4 51.37 244 84.02L256 96L267.1 84.02C300.6 51.37 347 36.51 392.6 44.1C461.5 55.58 512 115.2 512 185.1V190.9C512 232.4 494.8 272.1 464.4 300.4L283.7 469.1C276.2 476.1 266.3 480 256 480C245.7 480 235.8 476.1 228.3 469.1L47.59 300.4C17.23 272.1 .0003 232.4 .0003 190.9L0 190.9z"
+			);
+			svg.appendChild(path1);
+			blocBasInfos_data.appendChild(svg);
+
+			//* __Fonction anonyme qui incrémente les likes
+			svg.addEventListener("click", () => {
 				if (dataVid_p.textContent == likes) {
 					dataVid_p.textContent++;
 				} else {

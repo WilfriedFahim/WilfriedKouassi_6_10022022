@@ -28,7 +28,7 @@ function bannerPhotographerFactory(data) {
 		//* ______<p class="ville">
 		const ville = document.createElement("p");
 		ville.setAttribute("class", "ville");
-		(ville.textContent = city), country;
+		ville.textContent = (city, country);
 		photographerHeader_infosLeft.appendChild(ville);
 
 		//* ______<p class="tag">
@@ -89,7 +89,7 @@ function bannerPhotographerFactory(data) {
 		headerSection.appendChild(photographerHeader);
 		headerSection.appendChild(filter);
 
-		return section;
+		return photographerHeader, filter;
 	}
 
 	return {

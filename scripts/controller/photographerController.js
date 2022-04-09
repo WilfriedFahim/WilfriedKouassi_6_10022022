@@ -1,8 +1,8 @@
-import { MediaData } from "../pages/fetchMedia.js";
-import {} from "../pages/fetchMedia.js";
+import { MediaData } from "./FetchMedia.js";
+import {} from "./FetchMedia.js";
 
-import { PhotographerData } from "../pages/fetchData.js";
-import {} from "../pages/FetchData.js";
+import { PhotographerData } from "./FetchData.js";
+import {} from "./FetchData.js";
 
 const URL_Data_Json = "./data/photographers.json";
 
@@ -54,9 +54,7 @@ function iFiltMedia(media, photographers) {
 
 async function displayBanner(photographers) {
 	const headerSection = document.querySelector(".section_header");
-	console.log(headerSection);
 	photographers.forEach((photographer) => {
-		console.log(photographer); //! A SUPP
 		const BannerModel = bannerPhotographerFactory(photographer); // ajoute chaque object à la fonction photographerFactory
 		const BannerCard = BannerModel.getBannerPhotographer(); // utilise la fonction getUserCardDOM avec les infos passé en parametre
 		headerSection.appendChild(BannerCard);
