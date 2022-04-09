@@ -1,5 +1,5 @@
-import { PhotographerData } from "../pages/fetchData.js";
-import {} from "../pages/FetchData.js";
+import { PhotographerData } from "../controller/fetchData.js";
+import {} from "../controller/FetchData.js";
 
 const URL_Json = "./data/photographers.json";
 

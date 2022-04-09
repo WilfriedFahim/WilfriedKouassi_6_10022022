@@ -72,13 +72,9 @@ function mediaFactory(dataA) {
 			blocBasInfos_data.appendChild(svg);
 
 			//* __Fonction anonyme qui incrémente les likes
-			svg.addEventListener("click", () => {
-				if (dataImg_p.textContent == likes) {
-					dataImg_p.textContent++;
-				} else {
-					dataImg_p.textContent--;
-				}
-			});
+			svg.addEventListener("click", incrementeMe);
+			svg.liveLike = dataImg_p; // création du params de la fonction incrementeMe
+			svg.jsonLikes = likes; //création du params de la fonction incrementeMe
 		} else if (video) {
 			//* CREATION DE LA DIV "blocHaut-vid" ET DE SON CONTENU
 			const blocHaut = document.createElement("div");
@@ -133,13 +129,9 @@ function mediaFactory(dataA) {
 			blocBasInfos_data.appendChild(svg);
 
 			//* __Fonction anonyme qui incrémente les likes
-			svg.addEventListener("click", () => {
-				if (dataVid_p.textContent == likes) {
-					dataVid_p.textContent++;
-				} else {
-					dataVid_p.textContent--;
-				}
-			});
+			svg.addEventListener("click", incrementeMe);
+			svg.liveLike = dataVid_p; //création du params de la fonction incrementeMe
+			svg.jsonLikes = likes; //création du params de la fonction incrementeMe
 		}
 
 		return article;
