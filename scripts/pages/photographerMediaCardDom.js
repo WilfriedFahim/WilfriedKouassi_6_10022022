@@ -12,9 +12,10 @@ function mediaFactory(dataA) {
 		description,
 	} = dataA;
 
+	console.log(dataA.title);
+
 	const picture = `assets/SamplePhotos/${photographerId}/${image}`;
 	const videoMedia = `assets/SamplePhotos/${photographerId}/${video}`;
-	const svgCoeur = `assets/icons/heart-solid.svg`;
 	// J'utilise l'id pour trouver le chemin car j'ai nommé chaque dossier
 	// photographe par son id et pas par son nom
 
@@ -73,6 +74,7 @@ function mediaFactory(dataA) {
 
 			//* __Fonction anonyme qui incrémente les likes
 			svg.addEventListener("click", incrementeMe);
+			svg.addEventListener("click", totalLikes); //! a supp
 			svg.liveLike = dataImg_p; // création du params de la fonction incrementeMe
 			svg.jsonLikes = likes; //création du params de la fonction incrementeMe
 		} else if (video) {

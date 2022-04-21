@@ -10,4 +10,8 @@ function incrementeMe(e) {
 }
 
 //* ---------------------------------------------
-//* ----
+//* PERMET DE CALCULER LE NOMBRE DE LIKES
+
+function totalLikes(e) {
+	console.log(e.currentTarget.liveLike.textContent);
+}

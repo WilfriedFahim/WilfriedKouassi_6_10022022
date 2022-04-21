@@ -1,8 +1,8 @@
-import { MediaData } from "./FetchMedia.js";
-import {} from "./FetchMedia.js";
+import { MediaData } from "./fetchMedia.js";
+import {} from "./fetchMedia.js";
 
-import { PhotographerData } from "./FetchData.js";
-import {} from "./FetchData.js";
+import { PhotographerData } from "./fetchData.js";
+import {} from "./fetchData.js";
 
 const URL_Data_Json = "./data/photographers.json";
 
@@ -47,6 +47,7 @@ function iFiltMedia(media, photographers) {
 
 	displayMedia(mediaInfos);
 	displayBanner(photographer);
+	sortBy(mediaInfos);
 }
 
 //* ---------------------------------------------
@@ -73,13 +74,34 @@ async function displayMedia(mediaInfos) {
 	});
 }
 
-// ---------------------------------------------
-// SERT A TRIER LES MEDIAS
+//* ---------------------------------------------
+//* PERMET DE TRIER LES MEDIA
 
-function trieSelectif(media) {}
+function sortBy(data) {
+	//selectIndex me permet de connaitre la position du selecteur
+	let { title, likes, date } = data;
 
-// ---------------------------------------------
-// PERMET D'INIT LES FONCTIONS
+	console.log(data.title);
+	if (this.selectedIndex == 0) {
+		const a = sortByPopularity();
+		console.log(a);
+	} else if (this.selectedIndex == 1) {
+		console.log("date");
+	} else if (this.selectedIndex == 2) {
+		console.log("titre");
+	}
+}
+
+const selected = document.querySelector(".custom-select");
+console.log(selected);
+//selected.addEventListener("change", sortBy);
+
+function sortByPopularity() {
+	console.log("hello");
+}
+
+//* ---------------------------------------------
+//* PERMET D'INIT LES FONCTIONS
 
 async function init() {
 	const { photographers } = await getPhotographers();

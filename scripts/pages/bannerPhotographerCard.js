@@ -82,7 +82,7 @@ function bannerPhotographerFactory(data) {
 
 		const value2 = document.createElement("option");
 		value2.setAttribute("value", "2");
-		value2.textContent = "Popularité";
+		value2.textContent = "Titre";
 		select.appendChild(value2);
 
 		const headerSection = document.querySelector(".section_header");
