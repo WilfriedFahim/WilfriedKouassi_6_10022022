@@ -4,7 +4,7 @@ import {} from "./fetchMedia.js";
 import { PhotographerData } from "./fetchData.js";
 import {} from "./fetchData.js";
 
-const URL_Data_Json = "data/photographers.json";
+const URL_Data_Json = "/data/photographers.json";
 
 var totalLikes;
 var mediaInfos = [];
@@ -80,7 +80,6 @@ async function displayMedia(mediaInfos) {
 		const userCardMedia = cardModel.getUserCardMedia();
 		cardSection.appendChild(userCardMedia);
 	});
-	
 }
 
 //* ---------------------------------------------
