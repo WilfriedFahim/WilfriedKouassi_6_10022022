@@ -4,8 +4,7 @@ import {} from "./fetchMedia.js";
 import { PhotographerData } from "./fetchData.js";
 import {} from "./fetchData.js";
 
-const URL_Data_Json =
-	"https://wilfriedfahim.github.io/WilfriedKouassi_6_10022022/data/photographers.json";
+const URL_Data_Json = "data/photographers.json";
 
 var totalLikes;
 var mediaInfos = [];
