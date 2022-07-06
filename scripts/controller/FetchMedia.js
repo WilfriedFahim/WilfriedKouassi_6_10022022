@@ -20,4 +20,3 @@ export class MediaData extends FetchMedia {
 		return await this.get();
 	}
 }
-console.log("hello");

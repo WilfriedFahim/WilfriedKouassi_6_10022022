@@ -4,7 +4,11 @@ import {} from "./fetchMedia.js";
 import { PhotographerData } from "./fetchData.js";
 import {} from "./fetchData.js";
 
-const URL_Data_Json = "./data/photographers.json";
+const URL_Data_Json =
+	"https://github.com/WilfriedFahim/WilfriedKouassi_6_10022022/blob/main/data/photographers.json";
+
+var totalLikes;
+var mediaInfos = [];
 
 //* ---------------------------------------------
 //*  PERMET DE RECUPERER LES DATA JSON MEDIA + PHOTOGRAPHER
@@ -37,7 +41,7 @@ function iFiltMedia(media, photographers) {
 
 	const ids = params.get("id"); // récup le contenu du param "id" de l'URL
 
-	const mediaInfos = media.filter(
+	mediaInfos = media.filter(
 		(element) => element.photographerId == ids // Me permet de recup l'objet du photographe
 	); // rattacher à l'ID comparé
 
@@ -45,8 +49,8 @@ function iFiltMedia(media, photographers) {
 		(element) => element.id == ids // Me permet de recup  l'objet du photographe
 	); // rattacher à l'ID comparé
 
-	displayMedia(mediaInfos);
 	displayBanner(photographer);
+	displayMedia(mediaInfos);
 	sortBy(mediaInfos);
 }
 
@@ -67,38 +71,55 @@ async function displayBanner(photographers) {
 
 async function displayMedia(mediaInfos) {
 	const cardSection = document.querySelector(".photographer_media");
+	cardSection.innerHTML = ""; // vide le tableau et reconstruit ensuite
+
+	totalLikes = 0;
 	mediaInfos.forEach((mediaInfo) => {
-		const cardModel = mediaFactory(mediaInfo);
+		totalLikes = totalLikes + mediaInfo.likes;
+		document.getElementById("likeAll").textContent = totalLikes;
+		const cardModel = mediaFactory(mediaInfo, mediaInfos);
 		const userCardMedia = cardModel.getUserCardMedia();
 		cardSection.appendChild(userCardMedia);
 	});
+	
 }
 
 //* ---------------------------------------------
 //* PERMET DE TRIER LES MEDIA
 
-function sortBy(data) {
-	//selectIndex me permet de connaitre la position du selecteur
-	let { title, likes, date } = data;
-
-	console.log(data.title);
-	if (this.selectedIndex == 0) {
-		const a = sortByPopularity();
-		console.log(a);
-	} else if (this.selectedIndex == 1) {
-		console.log("date");
-	} else if (this.selectedIndex == 2) {
-		console.log("titre");
-	}
+function sortBy(mediaInfos) {
+	const select = document.querySelector("select");
+	select.addEventListener("click", function (e) {
+		if (this.value === "0") {
+			//* A COMMENTER
+			mediaInfos = mediaInfos.sort((a, b) => {
+				return -a.likes + b.likes;
+			});
+		} else if (this.value === "1") {
+			//* A COMMENTER
+			mediaInfos = mediaInfos.sort((a, b) => {
+				return new Date(a.date) - new Date(b.date);
+			});
+		} else if (this.value === "2") {
+			//* A COMMENTER
+			mediaInfos = mediaInfos.sort((a, b) => {
+				return a.title.localeCompare(b.title);
+			});
+		}
+		displayMedia(mediaInfos);
+	});
 }
 
-const selected = document.querySelector(".custom-select");
-console.log(selected);
-//selected.addEventListener("change", sortBy);
+//* ---------------------------------------------
+//* MODAL CONTACTEZ-MOI
 
-function sortByPopularity() {
-	console.log("hello");
-}
+const modalbg = document.getElementById("contact_modal");
+const btnClose = document.getElementsByClassName("close1");
+// _______ fermeture du modal via la croix
+
+btnClose[0].onclick = function () {
+	modalbg.style.display = "none";
+};
 
 //* ---------------------------------------------
 //* PERMET D'INIT LES FONCTIONS

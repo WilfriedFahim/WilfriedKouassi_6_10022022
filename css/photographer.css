@@ -28,6 +28,8 @@ header {
 
 /** ___<div class="section_header"> */
 
+/* DIV MODAL | XXXX */
+
 .photograph-header {
 	display: flex;
 	justify-content: space-between;
@@ -36,13 +38,21 @@ header {
 	margin: 0 20px;
 	margin-left: auto;
 	margin-right: auto;
+	background-color: #fafafa;
+	border-radius: 5px;
+	height: 300px;
 }
 
 .photograph-header__infos {
 	display: flex;
 	justify-content: space-around;
 	align-items: center;
-	margin-left: 30px;
+	width: 55%;
+	padding-left: 5%;
+}
+
+.contact_me {
+	margin-left: 5%;
 }
 
 .photograph-header__infos-left {
@@ -61,7 +71,7 @@ header {
 
 .photograph-header h2 {
 	color: #d3573c;
-	font-size: 2.5em;
+	font-size: 3.5em;
 	font-weight: 500;
 }
 
@@ -93,7 +103,7 @@ header {
 	margin-right: auto;
 }
 
-.filter p {
+.filter label {
 	margin-right: 25px;
 	padding-top: 5px;
 	font-weight: bold;
@@ -111,8 +121,10 @@ header {
 	font-weight: bold;
 	padding: 16px 10px;
 	font-size: 16px;
-	border-radius: 5px;
+	border: none;
+	outline: none;
 }
+
 .test {
 	width: 500px;
 }
@@ -143,6 +155,7 @@ article {
 .blocHaut-img {
 	width: 100%;
 	height: 90%;
+	overflow: hidden;
 }
 
 .blocHaut-img img {
@@ -150,6 +163,12 @@ article {
 	height: 100%;
 	border-radius: 5px;
 	object-fit: cover;
+	vertical-align: middle;
+	transition: all 0.3s ease;
+}
+
+.blocHaut-img:hover img {
+	transform: scale(1.1);
 }
 
 .blocHaut-vid {
@@ -197,35 +216,79 @@ article {
 .like {
 	width: 100%;
 	height: 20px;
-}
-
-.blocBas-infos__data .getLike {
 	fill: #901c1c;
 }
 
-/* DIV MODAL | XXXX */
+/* DIV BOX */
 
-#contact_modal {
+.boxBelow {
+	position: sticky;
+	bottom: 0%;
+	margin: 0 0px 0 65%;
+	background-color: #db8876;
+	border-radius: 5px;
+	width: 376px;
+	height: 89px;
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
+}
+
+.nbrDeLikeAndHeart {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.nbrDeLikeAndHeart p {
+	font-style: normal;
+	margin-right: 10px;
+	font-weight: 600;
+	font-size: 20px;
+	line-height: 31px;
+}
+
+.nbrDeLikeAndHeart .like {
+	width: 20px;
+	fill: black;
+}
+
+.pricePerDay p {
+	font-style: normal;
+	margin-right: 10px;
+	font-weight: 600;
+	font-size: 20px;
+	line-height: 31px;
+}
+
+/*#contact_modal {
 	display: none;
-}
+}*/
 
-.photograph-header {
-	background-color: #fafafa;
-	height: 300px;
-}
-
-.contact_button {
+.contact_button,
+.contact_me {
 	font-size: 20px;
 	font-weight: bold;
 	color: white;
 	padding: 11px;
-	width: 170px;
+	width: 220px;
 	height: 70px;
 	border: none;
 	background-color: #901c1c;
 	border-radius: 5px;
 	cursor: pointer;
-	margin-left: 150px;
+}
+
+#contact_modal {
+	z-index: 10;
+	position: absolute;
+	top: 0%;
+	bottom: 0;
+	padding-top: 5%;
+	width: 100%;
+	height: auto;
+	background: rgba(196, 196, 196, 0.4);
+	display: none;
 }
 
 .modal {
@@ -242,6 +305,7 @@ article {
 
 .modal header {
 	justify-content: space-between;
+	align-items: flex-start;
 	width: 100%;
 }
 
@@ -252,7 +316,6 @@ article {
 .modal header h2 {
 	font-size: 64px;
 	font-weight: normal;
-	text-align: center;
 }
 
 form {
@@ -260,6 +323,7 @@ form {
 	width: 100%;
 	flex-direction: column;
 	align-items: flex-start;
+	margin-top: 15%;
 }
 
 form label {
@@ -272,7 +336,11 @@ form div {
 	flex-direction: column;
 	width: 100%;
 	align-items: self-start;
-	margin-bottom: 26px;
+}
+
+.formData {
+	display: flex;
+	padding: -10px;
 }
 
 form input {
@@ -280,4 +348,79 @@ form input {
 	height: 68px;
 	border: none;
 	border-radius: 5px;
+	box-shadow: 0px 2px 2px 0px rgba(0, 0, 0, 0.25);
+	font-size: 24px;
+}
+
+form #message {
+	border: none;
+	border-radius: 5px;
+	font-size: 24px;
+	font-weight: 500;
+	box-shadow: 0px 2px 2px 0px rgba(0, 0, 0, 0.25);
+	width: 100%;
+	height: 200px;
+}
+
+/* LIGHTOX __________________ */
+
+.preview-box {
+	display: none;
+	position: absolute;
+	top: 0;
+	left: 0;
+	bottom: 0;
+	right: 0;
+}
+
+.newImage {
+	width: 100%;
+	position: relative;
+	display: flex;
+	justify-content: space-between;
+}
+
+.image-box {
+	width: 100%;
+	height: 100%;
+	background-color: #e5e5e5;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	position: fixed;
+}
+
+.icon {
+	color: #901c1c;
+	display: flex;
+	margin-top: -10%;
+}
+
+.slide {
+	margin-left: 50px;
+	margin-right: 50px;
+}
+
+.image-box img {
+	max-width: 1050px;
+	max-height: 900px;
+	border-radius: 5px;
+	position: fixed;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	margin: auto;
+}
+
+.videoLightboxInfos {
+	max-width: 1050px;
+	max-height: 900px;
+	border-radius: 5px;
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	margin: auto;
 }

@@ -20,5 +20,3 @@ export class PhotographerData extends FetchData {
 		return await this.get();
 	}
 }
-
-console.log("hello");

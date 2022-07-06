@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="en-FR"+>
 	<head>
 		<link href="css/photographer.css" rel="stylesheet" type="text/css" />
 		<meta charset="utf-8" />
@@ -16,31 +16,85 @@
 	</head>
 	<body>
 		<header>
-			<img src="assets/images/logo.png" class="logo" />
+			<h1><a href="index.html"><img src="assets/images/logo.png" class="logo"  alt="Fisheye Home page"/></a></h1>
 		</header>
 		<main id="main">
 			<div class="section_header"></div>
 			<div class="photographer_media"></div>
 		</main>
+
+		<div class="preview-box">
+    		<div class="image-box">
+				<div class="slide prev" tabindex="1"><i class="fas fa-angle-left fa-5x"></i></div>
+				<div class="newImage">	
+					<div class="infoPicture">
+						<img class="imageLightbox" alt="">
+						<video controls class="videoLightboxInfos">
+							<source class="videoLightbox" type="video/mp4" alt="" >
+						</video>
+					<p class="textImage"></p>
+					</div>
+					<span class="icon fas fa-times fa-4x"></span>	
+				</div>
+      			<div class="slide next" tabindex="2"><i class="fas fa-angle-right fa-5x"></i></div>
+    		</div>
+  		</div>
+		
 		<div id="contact_modal">
 			<div class="modal">
 				<header>
-					<h2>Contactez-moi</h2>
-					<img src="assets/icons/close.svg" onclick="closeModal()" />
-				</header>
-				<form>
 					<div>
-						<label>Prénom</label>
-						<input />
+						<h2>Contactez-moi</h2>
+						<h2 class="namePhotographer"></h2>
 					</div>
-					<button class="contact_button">Envoyer</button>
+					<img class="close1" src="assets/icons/close.svg" aria-label="Close Contact form" />
+				</header>
+				<form name="contactMe" method="GET">
+					<div class="formData">
+								<label for="firstName">Prénom</label><br />
+								<input
+									class="text-control"
+									type="text"
+									id="firstName"
+									name="first name"
+									minlength="2"
+									aria-label="First name"
+								/><span class="error" id="errorFirst"></span><br />
+							</div>
+							<div class="formData">
+								<label  for="lastName">Nom</labelfor=><br />
+								<input
+									class="text-control"
+									type="text"
+									id="lastName"
+									name="last name"
+									aria-label="Last name"
+									minlength="2"
+								/><span class="error" id="errorLast"></span><br />
+							</div>
+							<div class="formData">
+								<label for="email">E-mail</label><br />
+								<input
+									class="text-control"
+									type="email"
+									id="email"
+									name="email"
+									aria-label="Email"
+								/><span class="error" id="errorEmail"></span><br />
+							</div>
+							<div class="formData">
+								<label for="message">Votre message</label><br />
+								<textarea id="message" name="message" aria-label="Your message" required></textarea>
+								<span class="error" id="errorMessage"></span><br />
+							</div>
+					<button class="contact_button" aria-label="Send">Envoyer</button>
 				</form>
 			</div>
 		</div>
-		<script src="scripts/controller/FetchData.js" type="module"></script>
-		<script src="scripts/controller/FetchMedia.js" type="module"></script>
-		<script src="scripts/controller/othersFunction.js" ></script>
+		<script src="scripts/controller/fetchData.js" type="module"></script>
+		<script src="scripts/controller/fetchMedia.js" type="module"></script>
 		<script src="scripts/controller/photographerController.js" type="module"></script>
+		<script src="scripts/controller/othersFunction.js" ></script>
 		<script src="scripts/pages/bannerPhotographerCard.js"></script>
 		<script src="scripts/pages/photographerMediaCardDom.js"></script>
 	</body>

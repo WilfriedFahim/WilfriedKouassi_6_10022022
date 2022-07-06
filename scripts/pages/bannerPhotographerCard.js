@@ -1,5 +1,5 @@
 function bannerPhotographerFactory(data) {
-	const { name, id, city, country, tagline, portrait } = data;
+	const { name, id, city, country, tagline, price, portrait } = data;
 	const picture = `assets/SamplePhotos/Photographers_ID_Photos/${portrait}`;
 
 	function getBannerPhotographer() {
@@ -24,11 +24,12 @@ function bannerPhotographerFactory(data) {
 		const h2 = document.createElement("h2");
 		h2.textContent = name;
 		photographerHeader_infosLeft.appendChild(h2);
+		document.querySelector(".namePhotographer").textContent = name;
 
 		//* ______<p class="ville">
 		const ville = document.createElement("p");
 		ville.setAttribute("class", "ville");
-		ville.textContent = (city, country);
+		ville.textContent = city + ", " + country;
 		photographerHeader_infosLeft.appendChild(ville);
 
 		//* ______<p class="tag">
@@ -39,14 +40,21 @@ function bannerPhotographerFactory(data) {
 
 		//* ____<button class="contact_button"">
 		const button = document.createElement("button");
-		button.setAttribute("class", "contact_button");
+		button.setAttribute("class", "contact_me");
 		button.textContent = "Contactez-moi";
+		button.setAttribute("aria-label", "Contact Me")
 		photographerHeader_infos.appendChild(button);
 
 		//* ____<img src="assets/SamplePhotos....
 		const img = document.createElement("img");
 		img.setAttribute("src", picture);
+		img.setAttribute("alt", "");
 		photographerHeader.appendChild(img);
+
+		//* ____bouton contactez-moi
+		button.onclick = function () {
+			document.getElementById("contact_modal").style.display = "block";
+		};
 
 		//* ------------------------------------------------------
 
@@ -55,8 +63,8 @@ function bannerPhotographerFactory(data) {
 		filter.setAttribute("class", "filter");
 
 		//* __<p>
-		const trie = document.createElement("p");
-		trie.textContent = " Trier par";
+		const trie = document.createElement("label");
+		trie.textContent = "Trier par";
 		filter.appendChild(trie);
 
 		//* __<div class="custom-select">
@@ -66,6 +74,7 @@ function bannerPhotographerFactory(data) {
 
 		//* ____<div class="custom-select">
 		const select = document.createElement("select");
+		select.setAttribute("aria-label","Order By")
 		customSelect.appendChild(select);
 
 		//* ______<option>
@@ -91,6 +100,43 @@ function bannerPhotographerFactory(data) {
 
 		return photographerHeader, filter;
 	}
+
+	// Box du bas (likes)
+	const BoxBelow = document.createElement("div");
+	BoxBelow.setAttribute("class", "boxBelow");
+
+	const nbrDeLikeAndHeart = document.createElement("div");
+	nbrDeLikeAndHeart.setAttribute("class", "nbrDeLikeAndHeart");
+
+	const pricePerDay = document.createElement("div");
+	pricePerDay.setAttribute("class", "pricePerDay");
+
+	const main = document.querySelector("#main");
+	main.appendChild(BoxBelow);
+
+	// _____ Le nombre de like + le coeur
+	const likeAll = document.createElement("p");
+	likeAll.setAttribute("id", "likeAll");
+	//likeAll.textContent = totalLikes; //! MODIFIER POUR APPLIQUER LA FONCTION
+	nbrDeLikeAndHeart.appendChild(likeAll);
+	const svg = document.createElementNS("http://www.w3.org/2000/svg", "svg");
+	const path1 = document.createElementNS("http://www.w3.org/2000/svg", "path");
+	svg.setAttribute("viewBox", "0 0 512 512");
+	svg.setAttribute("class", "like");
+	path1.setAttribute(
+		"d",
+		"M0 190.9V185.1C0 115.2 50.52 55.58 119.4 44.1C164.1 36.51 211.4 51.37 244 84.02L256 96L267.1 84.02C300.6 51.37 347 36.51 392.6 44.1C461.5 55.58 512 115.2 512 185.1V190.9C512 232.4 494.8 272.1 464.4 300.4L283.7 469.1C276.2 476.1 266.3 480 256 480C245.7 480 235.8 476.1 228.3 469.1L47.59 300.4C17.23 272.1 .0003 232.4 .0003 190.9L0 190.9z"
+	);
+	svg.appendChild(path1);
+	nbrDeLikeAndHeart.appendChild(svg);
+	BoxBelow.appendChild(nbrDeLikeAndHeart);
+
+	// _____ Le prix par jours
+	const prix = document.createElement("p");
+	prix.className = "prix";
+	prix.textContent = price + "€ / jour";
+	pricePerDay.appendChild(prix);
+	BoxBelow.appendChild(pricePerDay);
 
 	return {
 		name,

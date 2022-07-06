@@ -10,8 +10,11 @@ function photographerFactory(data) {
 		article.appendChild(a); // ajoute la const a l'article
 		a.setAttribute("class", "card__for-link"); // ajoute l'id à chaque card
 		a.setAttribute("id", id);
+		a.setAttribute("aria-label", name);
 		const img = document.createElement("img");
 		img.setAttribute("src", picture);
+		img.setAttribute("alt", "");
+		a.focus();
 
 		const h2 = document.createElement("h2");
 		h2.textContent = name;
