@@ -26,7 +26,7 @@ function photographerFactory(data) {
 		const ville = document.createElement("p");
 		ville.textContent = city + ", " + country;
 		article.appendChild(ville);
-
+		
 		const tag = document.createElement("p");
 		tag.className = "tag";
 		tag.textContent = tagline;

@@ -98,7 +98,7 @@ function mediaFactory(dataA, mediaInfos) {
 			vid_source.setAttribute("alt", "");
 			blocHaut.appendChild(vid);
 			vid.appendChild(vid_source);
-
+			
 			article.appendChild(blocHaut);
 
 			//* CREATION DE LA DIV "blocBas-infos"

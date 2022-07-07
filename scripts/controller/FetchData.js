@@ -1,3 +1,5 @@
+//FetchData me permet de récuperer et traiter le fichier json, grace à la fonction fetch qui traite la promise
+
 export class FetchData {
 	constructor(url) {
 		this._url = url;

@@ -1,10 +1,10 @@
-import { MediaData } from "./fetchMedia.js";
-import {} from "./fetchMedia.js";
+import { MediaData } from "../controller/fetchMedia.js";
+import {} from "../controller/fetchMedia.js";
 
-import { PhotographerData } from "./fetchData.js";
-import {} from "./fetchData.js";
+import { PhotographerData } from "../controller/fetchData.js";
+import {} from "../controller/fetchData.js";
 
-const URL_Data_Json = "/data/photographers.json";
+const URL_Data_Json = "./data/photographers.json";
 
 var totalLikes;
 var mediaInfos = [];

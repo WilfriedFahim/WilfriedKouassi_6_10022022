@@ -19,7 +19,7 @@ function bannerPhotographerFactory(data) {
 			"photograph-header__infos-left"
 		);
 		photographerHeader_infos.appendChild(photographerHeader_infosLeft);
-
+		
 		//* ______<h2>
 		const h2 = document.createElement("h2");
 		h2.textContent = name;
