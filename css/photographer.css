@@ -371,23 +371,25 @@ form #message {
 	left: 0;
 	bottom: 0;
 	right: 0;
+	width: 100%;
+	height: 100%;
+	background-color: #e5e5e5;
 }
 
 .newImage {
 	width: 100%;
-	position: relative;
 	display: flex;
+	flex-direction: column;
 	justify-content: space-between;
 }
 
 .image-box {
-	width: 100%;
-	height: 100%;
-	background-color: #e5e5e5;
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
-	position: fixed;
+	margin-top: 30vh;
+	margin-left: 10vw;
+	margin-right: 10vw;
 }
 
 .icon {
@@ -397,19 +399,23 @@ form #message {
 }
 
 .slide {
-	margin-left: 50px;
-	margin-right: 50px;
+	height: 900px;
+}
+
+.textImage {
+	margin: auto;
+	font-size: 24px;
+	line-height: 31.25px;
+	color: #901c1c;
+	font-weight: 400;
+	margin-top: 1vh;
+	margin-left: 9vw;
 }
 
 .image-box img {
 	max-width: 1050px;
 	max-height: 900px;
 	border-radius: 5px;
-	position: fixed;
-	top: 0;
-	bottom: 0;
-	left: 0;
-	right: 0;
 	margin: auto;
 }
 
@@ -417,10 +423,17 @@ form #message {
 	max-width: 1050px;
 	max-height: 900px;
 	border-radius: 5px;
-	position: absolute;
-	top: 0;
-	bottom: 0;
-	left: 0;
-	right: 0;
 	margin: auto;
+}
+
+.closeButton {
+	
+}
+
+.fa-angle-left{
+	margin-top: 20vh;
+}
+
+.fa-angle-right {
+	margin-top: 17vh;
 }

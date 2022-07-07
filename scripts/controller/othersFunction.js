@@ -40,74 +40,116 @@ lightbox = (e) => {
 	const image = document.getElementsByClassName("imageLightbox");
 	const video = document.getElementsByClassName("videoLightboxInfos");
 	const prev = document.getElementsByClassName("prev");
+	const titleBox = document.getElementsByClassName("textImage");
 	prev[0].focus();
 	const next = document.getElementsByClassName("next");
-	const all = document.getElementsByClassName("photographer_section");
 	var previewbox = document.getElementsByClassName("preview-box");
 
+	let titleLightbox = e.currentTarget.dataaA.title;
 	let idCurrentTarget = e.currentTarget.dataaA.id;
 	let arrayMediaInfos = e.currentTarget.mediasInfos;
 	let indexCurrentTarget = arrayMediaInfos.findIndex(
 		(element) => element.id === idCurrentTarget
 	);
-
 	var newIndex = indexCurrentTarget;
 
-	console.log(indexCurrentTarget);
-
+	//____ Affichage de l'image et du titre dans la lightbox
 	if (e.currentTarget.dataaA.image) {
 		video[0].setAttribute("src", "");
 		video[0].style.display = "none";
 		image[0].setAttribute("src", e.currentTarget.imgSrc);
 		image[0].style.display = "block";
+		titleBox[0].textContent = titleLightbox;
+		titleBox[0].style.display = "block";
 	} else if (e.currentTarget.dataaA.video) {
 		image[0].setAttribute("src", "");
 		image[0].style.display = "none";
 		video[0].setAttribute("src", e.currentTarget.vidSrc);
 		video[0].style.display = "block";
+		titleBox[0].textContent = titleLightbox;
+		titleBox[0].style.display = "block";
 	}
 
-	prev[0].onclick = function () {
+	//____ Navigation au clavier
+	function keyArrowLeft(e) {
 		newIndex = newIndex - 1;
 		var aaa = arrayMediaInfos[newIndex];
-		console.log(aaa);
-		if (aaa.image) {
-			const picture = `assets/SamplePhotos/${aaa.photographerId}/${aaa.image}`;
-			video[0].setAttribute("src", "");
-			video[0].style.display = "none";
-			image[0].setAttribute("src", picture);
-			image[0].style.display = "block";
-		} else if (aaa.video) {
-			const videoMedia = `assets/SamplePhotos/${aaa.photographerId}/${aaa.video}`;
-			image[0].setAttribute("src", "");
-			image[0].style.display = "none";
-			video[0].setAttribute("src", videoMedia);
-			video[0].style.display = "block";
+		if (newIndex >= 0) {
+			if (aaa.image && newIndex >= 0) {
+				const picture = `assets/SamplePhotos/${aaa.photographerId}/${aaa.image}`;
+				let previousTitleBox = aaa.title;
+				video[0].setAttribute("src", "");
+				video[0].style.display = "none";
+				image[0].setAttribute("src", picture);
+				image[0].style.display = "block";
+				titleBox[0].textContent = previousTitleBox;
+				titleBox[0].style.display = "block";
+			} else if (aaa.video && newIndex >= 0) {
+				const videoMedia = `assets/SamplePhotos/${aaa.photographerId}/${aaa.video}`;
+				let previousTitleBox = aaa.title;
+				image[0].setAttribute("src", "");
+				image[0].style.display = "none";
+				video[0].setAttribute("src", videoMedia);
+				video[0].style.display = "block";
+				titleBox[0].textContent = previousTitleBox;
+				titleBox[0].style.display = "block";
+			}
+		} else {
+			e.preventDefault();
+			newIndex = 0;
 		}
-	};
+		console.log(newIndex);
+	}
 
-	next[0].addEventListener("click", () => {
+	function keyArrowRight(e) {
 		newIndex = newIndex + 1;
 		var aaa = arrayMediaInfos[newIndex];
-		console.log(aaa);
-		if (aaa.image) {
-			const picture = `assets/SamplePhotos/${aaa.photographerId}/${aaa.image}`;
-			video[0].setAttribute("src", "");
-			video[0].style.display = "none";
-			image[0].setAttribute("src", picture);
-			image[0].style.display = "block";
-		} else if (aaa.video) {
-			const videoMedia = `assets/SamplePhotos/${aaa.photographerId}/${aaa.video}`;
-			image[0].setAttribute("src", "");
-			image[0].style.display = "none";
-			video[0].setAttribute("src", videoMedia);
-			video[0].style.display = "block";
+		if (newIndex <= arrayMediaInfos.length - 1) {
+			if (aaa.image) {
+				const picture = `assets/SamplePhotos/${aaa.photographerId}/${aaa.image}`;
+				let previousTitleBox = aaa.title;
+				video[0].setAttribute("src", "");
+				video[0].style.display = "none";
+				image[0].setAttribute("src", picture);
+				image[0].style.display = "block";
+				titleBox[0].textContent = previousTitleBox;
+				titleBox[0].style.display = "block";
+			} else if (aaa.video) {
+				const videoMedia = `assets/SamplePhotos/${aaa.photographerId}/${aaa.video}`;
+				let previousTitleBox = aaa.title;
+				image[0].setAttribute("src", "");
+				image[0].style.display = "none";
+				video[0].setAttribute("src", videoMedia);
+				video[0].style.display = "block";
+				titleBox[0].textContent = previousTitleBox;
+				titleBox[0].style.display = "block";
+			}
+		} else {
+			e.preventDefault();
+			newIndex = arrayMediaInfos.length - 1;
+		}
+		console.log(newIndex);
+	}
+
+	window.addEventListener("keydown", (e) => {
+		if (e.keyCode === 37) {
+			keyArrowLeft(e);
+			console.log("Hello left");
+		} else if (e.keyCode === 39) {
+			keyArrowRight(e);
+			console.log("Hello Right");
 		}
 	});
-
-	previewbox[0].style.display = "block";
 
 	btnCloseLightbox[0].onclick = function () {
 		previewbox[0].style.display = "none";
 	};
+
+	//____ bouton précedent lightbox
+	prev[0].addEventListener("click", keyArrowLeft);
+
+	//____ bouton suivant lightbox
+	next[0].addEventListener("click", keyArrowRight);
+
+	previewbox[0].style.display = "block";
 };
