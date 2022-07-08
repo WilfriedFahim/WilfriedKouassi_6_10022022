@@ -1,3 +1,5 @@
+//Cette fonction me permet de créer tout la base d'affichage pour toutes les bannières photographes qui seront générés
+
 function bannerPhotographerFactory(data) {
 	const { name, id, city, country, tagline, price, portrait } = data;
 	const picture = `assets/SamplePhotos/Photographers_ID_Photos/${portrait}`;
@@ -19,7 +21,7 @@ function bannerPhotographerFactory(data) {
 			"photograph-header__infos-left"
 		);
 		photographerHeader_infos.appendChild(photographerHeader_infosLeft);
-		
+
 		//* ______<h2>
 		const h2 = document.createElement("h2");
 		h2.textContent = name;
@@ -42,7 +44,7 @@ function bannerPhotographerFactory(data) {
 		const button = document.createElement("button");
 		button.setAttribute("class", "contact_me");
 		button.textContent = "Contactez-moi";
-		button.setAttribute("aria-label", "Contact Me")
+		button.setAttribute("aria-label", "Contact Me");
 		photographerHeader_infos.appendChild(button);
 
 		//* ____<img src="assets/SamplePhotos....
@@ -74,7 +76,7 @@ function bannerPhotographerFactory(data) {
 
 		//* ____<div class="custom-select">
 		const select = document.createElement("select");
-		select.setAttribute("aria-label","Order By")
+		select.setAttribute("aria-label", "Order By");
 		customSelect.appendChild(select);
 
 		//* ______<option>
@@ -101,7 +103,7 @@ function bannerPhotographerFactory(data) {
 		return photographerHeader, filter;
 	}
 
-	// Box du bas (likes)
+	//* Création de la Box du bas (likes)
 	const BoxBelow = document.createElement("div");
 	BoxBelow.setAttribute("class", "boxBelow");
 
@@ -117,8 +119,8 @@ function bannerPhotographerFactory(data) {
 	// _____ Le nombre de like + le coeur
 	const likeAll = document.createElement("p");
 	likeAll.setAttribute("id", "likeAll");
-	//likeAll.textContent = totalLikes; //! MODIFIER POUR APPLIQUER LA FONCTION
 	nbrDeLikeAndHeart.appendChild(likeAll);
+
 	const svg = document.createElementNS("http://www.w3.org/2000/svg", "svg");
 	const path1 = document.createElementNS("http://www.w3.org/2000/svg", "path");
 	svg.setAttribute("viewBox", "0 0 512 512");

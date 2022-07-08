@@ -1,3 +1,5 @@
+//Cette fonction me permet de créer tout la base d'affichage pour tout les médias qui seront générés
+
 function photographerFactory(data) {
 	const { name, id, city, country, tagline, price, portrait } = data;
 	const picture = `assets/SamplePhotos/Photographers_ID_Photos/${portrait}`;
@@ -26,7 +28,7 @@ function photographerFactory(data) {
 		const ville = document.createElement("p");
 		ville.textContent = city + ", " + country;
 		article.appendChild(ville);
-		
+
 		const tag = document.createElement("p");
 		tag.className = "tag";
 		tag.textContent = tagline;

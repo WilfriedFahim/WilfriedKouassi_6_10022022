@@ -72,9 +72,9 @@ async function displayMedia(mediaInfos) {
 	const cardSection = document.querySelector(".photographer_media");
 	cardSection.innerHTML = ""; // vide le tableau et reconstruit ensuite
 
-	totalLikes = 0;
+	totalLikes = 0; // initialise à zéro le total des likes de la box en bas de la page
 	mediaInfos.forEach((mediaInfo) => {
-		totalLikes = totalLikes + mediaInfo.likes;
+		totalLikes = totalLikes + mediaInfo.likes; // calcul le total des likes
 		document.getElementById("likeAll").textContent = totalLikes;
 		const cardModel = mediaFactory(mediaInfo, mediaInfos);
 		const userCardMedia = cardModel.getUserCardMedia();
@@ -89,20 +89,18 @@ function sortBy(mediaInfos) {
 	const select = document.querySelector("select");
 	select.addEventListener("click", function (e) {
 		if (this.value === "0") {
-			//* A COMMENTER
+			//On récupère la valeur du click puis on le trie
 			mediaInfos = mediaInfos.sort((a, b) => {
 				return -a.likes + b.likes;
-			});
+			}); // Trie par likes (popularité)
 		} else if (this.value === "1") {
-			//* A COMMENTER
 			mediaInfos = mediaInfos.sort((a, b) => {
 				return new Date(a.date) - new Date(b.date);
-			});
+			}); //Trie par date
 		} else if (this.value === "2") {
-			//* A COMMENTER
 			mediaInfos = mediaInfos.sort((a, b) => {
 				return a.title.localeCompare(b.title);
-			});
+			}); // Trie par titre
 		}
 		displayMedia(mediaInfos);
 	});
@@ -117,8 +115,7 @@ const btnClose = document.getElementsByClassName("close1");
 
 btnClose[0].onclick = function () {
 	modalbg.style.display = "none";
-};
-
+}; //BtnClose[0] car c'est une Collection et que "[0]" permet de récup img.close1 , la div !
 //* ---------------------------------------------
 //* PERMET D'INIT LES FONCTIONS
 

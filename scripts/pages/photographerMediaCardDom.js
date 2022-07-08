@@ -22,6 +22,7 @@ function mediaFactory(dataA, mediaInfos) {
 
 		if (image) {
 			//* CREATION DE LA DIV "blocHaut-img" ET DE SON CONTENU
+
 			const blocHaut = document.createElement("div");
 			blocHaut.setAttribute("class", "blocHaut-img");
 			const img = document.createElement("img");
@@ -32,6 +33,7 @@ function mediaFactory(dataA, mediaInfos) {
 			article.appendChild(blocHaut);
 
 			//* CREATION DE LA DIV "blocBas-infos"
+
 			const blocBasInfos = document.createElement("div");
 			blocBasInfos.setAttribute("class", "blocBas-infos");
 			article.appendChild(blocBasInfos);
@@ -75,18 +77,21 @@ function mediaFactory(dataA, mediaInfos) {
 			blocBasInfos_data.appendChild(svg);
 
 			//* __Fonction anonyme qui incrémente les likes
+
 			svg.addEventListener("click", incrementeMe);
 			svg.liveLike = dataImg_p; // création du params de la fonction incrementeMe
 			svg.jsonLikes = likes; //création du params de la fonction incrementeMe
 
 			//* __Fonction anonyme qui exécute la fonction lightbox
+
 			blocHaut.addEventListener("click", lightbox);
-			blocHaut.dataaA = dataA;
-			blocHaut.mediasInfos = mediaInfos; //! a réecrir
-			blocHaut.imgSrc = picture;
-			blocHaut.vidSrc = videoMedia;
+			blocHaut.dataaA = dataA; //création du params de la fonction lightbox
+			blocHaut.mediasInfos = mediaInfos; //création du params de la fonction lightbox
+			blocHaut.imgSrc = picture; //création du params de la fonction lightbox
+			blocHaut.vidSrc = videoMedia; //création du params de la fonction lightbox
 		} else if (video) {
 			//* CREATION DE LA DIV "blocHaut-vid" ET DE SON CONTENU
+
 			const blocHaut = document.createElement("div");
 			blocHaut.setAttribute("class", "blocHaut-vid");
 			const vid = document.createElement("video");
@@ -98,10 +103,11 @@ function mediaFactory(dataA, mediaInfos) {
 			vid_source.setAttribute("alt", "");
 			blocHaut.appendChild(vid);
 			vid.appendChild(vid_source);
-			
+
 			article.appendChild(blocHaut);
 
 			//* CREATION DE LA DIV "blocBas-infos"
+
 			const blocBasInfos = document.createElement("div");
 			blocBasInfos.setAttribute("class", "blocBas-infos");
 			article.appendChild(blocBasInfos);
@@ -143,16 +149,18 @@ function mediaFactory(dataA, mediaInfos) {
 			blocBasInfos_data.appendChild(svg);
 
 			//* __Fonction anonyme qui incrémente les likes
+
 			svg.addEventListener("click", incrementeMe);
 			svg.liveLike = dataVid_p; //création du params de la fonction incrementeMe
 			svg.jsonLikes = likes; //création du params de la fonction incrementeMe
 
 			//* __Fonction anonyme qui exécute la fonction lightbox
-			blocHaut.addEventListener("click", lightbox);
-			blocHaut.dataaA = dataA;
-			blocHaut.mediasInfos = mediaInfos; //! a réecrir
-			blocHaut.imgSrc = picture;
-			blocHaut.vidSrc = videoMedia;
+
+			blocHaut.addEventListener("click", lightbox); //création du params de la fonction lightbox
+			blocHaut.dataaA = dataA; //création du params de la fonction lightbox
+			blocHaut.mediasInfos = mediaInfos; //création du params de la fonction lightbox
+			blocHaut.imgSrc = picture; //création du params de la fonction lightbox
+			blocHaut.vidSrc = videoMedia; //création du params de la fonction lightbox
 		}
 
 		return article;
