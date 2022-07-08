@@ -28,7 +28,7 @@ function mediaFactory(dataA, mediaInfos) {
 			const img = document.createElement("img");
 			img.setAttribute("src", picture);
 			img.setAttribute("label-aria", title);
-			img.setAttribute("alt", title);
+			img.setAttribute("alt", image);
 			blocHaut.appendChild(img);
 			article.appendChild(blocHaut);
 
@@ -100,7 +100,7 @@ function mediaFactory(dataA, mediaInfos) {
 			vid_source.setAttribute("src", videoMedia);
 			vid_source.setAttribute("type", "video/mp4");
 			vid_source.setAttribute("label-aria", title);
-			vid_source.setAttribute("alt", title);
+			vid_source.setAttribute("alt", video);
 			blocHaut.appendChild(vid);
 			vid.appendChild(vid_source);
 

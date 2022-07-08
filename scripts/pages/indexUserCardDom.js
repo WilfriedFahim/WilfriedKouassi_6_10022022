@@ -15,7 +15,7 @@ function photographerFactory(data) {
 		a.setAttribute("aria-label", name);
 		const img = document.createElement("img");
 		img.setAttribute("src", picture);
-		img.setAttribute("alt", "");
+		img.setAttribute("alt", portrait);
 		a.focus();
 
 		const h2 = document.createElement("h2");
