@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en-FR">
+<html lang="fr" xml:lang="fr" xmlns="http://www.w3.org/1999/xhtml">
 	<head>
 		<link href="css/photographer.css" rel="stylesheet" type="text/css" />
 		<meta charset="utf-8" />
@@ -77,6 +77,7 @@
 							name="first name"
 							minlength="2"
 							aria-label="First name"
+							required
 						/><span class="error" id="errorFirst"></span><br />
 					</div>
 					<div class="formData">
@@ -87,6 +88,7 @@
 							id="lastName"
 							name="last name"
 							aria-label="Last name"
+							required
 							minlength="2"
 						/><span class="error" id="errorLast"></span><br />
 					</div>
@@ -98,6 +100,7 @@
 							id="email"
 							name="email"
 							aria-label="Email"
+							required
 						/><span class="error" id="errorEmail"></span><br />
 					</div>
 					<div class="formData">
@@ -110,7 +113,7 @@
 						></textarea>
 						<span class="error" id="errorMessage"></span><br />
 					</div>
-					<button class="contact_button" aria-label="Send">Envoyer</button>
+					<button class="contact_button" aria-label="Send">Envoyer</input>
 				</form>
 			</div>
 		</div>

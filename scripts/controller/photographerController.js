@@ -111,11 +111,32 @@ function sortBy(mediaInfos) {
 
 const modalbg = document.getElementById("contact_modal");
 const btnClose = document.getElementsByClassName("close1");
+const buttonContact = document.getElementsByClassName("contact_button");
+
 // _______ fermeture du modal via la croix
 
 btnClose[0].onclick = function () {
 	modalbg.style.display = "none";
 }; //BtnClose[0] car c'est une Collection et que "[0]" permet de récup img.close1 , la div !
+
+// ___________ Envoi le formulaire dans la console
+buttonContact[0].onclick = (e) => {
+	var firstName = document.getElementById("firstName").value;
+	var lastName = document.getElementById("lastName").value;
+	var email = document.getElementById("email").value;
+	var message = document.getElementById("message").value;
+	if (firstName === "" || lastName === "" || email === "" || message === "") {
+		e.preventDefault();
+		alert("Veuillez remplir le formulaire");
+	} else {
+		console.log("Votre prenom :" + firstName);
+		console.log("Votre nom :" + lastName);
+		console.log("Votre email :" + email);
+		console.log("Votre message :" + message);
+		e.preventDefault();
+	}
+};
+
 //* ---------------------------------------------
 //* PERMET D'INIT LES FONCTIONS
 

@@ -2,7 +2,6 @@ import { PhotographerData } from "../controller/fetchData.js";
 import {} from "../controller/FetchData.js";
 
 const URL_Json = "./data/photographers.json";
-
 //* ---------------------------------------------
 //* PERMET DE RECUPERER LES DATA JSON SOUS FORME D'OBJET
 

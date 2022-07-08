@@ -1,0 +1,24 @@
+{
+  "name": "wilfriedkouassi_6_09022022",
+  "version": "1.0.0",
+  "description": "Depuis quelques semaines, vous êtes développeur junior chez Techasite, une société de conseil spécialisée dans le développement de sites web et d'applications mobiles.\r Avec votre cheffe de projet Amanda et le Designer UI, vous venez de faire une réunion de lancement du projet avec un nouveau client, FishEye.\r FishEye est un site web qui permet aux photographes indépendants de présenter leurs meilleurs travaux.\r Ils ont récemment levé des fonds et aimeraient mettre à jour leur site web.",
+  "main": "index.js",
+  "dependencies": {},
+  "devDependencies": {
+    "eslint": "^8.19.0",
+    "eslint-config-google": "^0.14.0"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/WilfriedFahim/WilfriedKouassi_6_10022022.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/WilfriedFahim/WilfriedKouassi_6_10022022/issues"
+  },
+  "homepage": "https://github.com/WilfriedFahim/WilfriedKouassi_6_10022022#readme"
+}

@@ -1,3 +1,4 @@
+/* eslint-disable no-inner-declarations */
 //* ---------------------------------------------
 //* PERMET D'INCREMENTER LE NOMBRE DE LIKE DE 1 ET -1
 //* PERMET DE CALCULER AUTOMATIQUEMENT LE NOMBRE TOTAL DE LIKE
